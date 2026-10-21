@@ -45,10 +45,10 @@ graph TD
     %% Déclenchement automatique (Data-Aware)
     Raw -.->|Déclenchement via Asset| DAG_Transform
 
-    %% Flux de transformation dbt
+    %% Flux de transformation dbt (CORRECTION ICI : ajout des guillemets)
     DAG_Transform -->|1 Tâche = 1 Modèle| Staging
-    Staging -->|dbt ref()| Intermediate
-    Intermediate -->|dbt ref()| Marts
+    Staging -->|"dbt ref()"| Intermediate
+    Intermediate -->|"dbt ref()"| Marts
 
     %% Flux d'alerting
     DAG_Ingest -.->|En cas d'échec| AlertCallback
