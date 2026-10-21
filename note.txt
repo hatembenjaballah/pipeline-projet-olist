@@ -1,0 +1,13 @@
+python3 --version
+mkdir pipeline-projet-olist
+cd .\pipeline-projet-olist\
+
+py -3.12 -m venv airflow_venv
+
+\installation_ariflow.bat   
+
+airflow_venv\Scripts\airflow db init
+
+\init_ariflow.bat 
+
+airflow_venv\Scripts\airflow.exe webserver --port 8080

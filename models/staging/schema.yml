@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_olist_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_olist_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_olist_products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_olist_sellers
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null

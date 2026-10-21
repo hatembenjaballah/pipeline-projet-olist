@@ -1,0 +1,21 @@
+# Environnement virtuel
+airflow_venv
+
+# Airflow
+logs/
+airflow.cfg
+.unlock
+.user.yml
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Base de données locale (trop lourde et générée)
+*.duckdb
+
+# Secrets (Très important !)
+profiles.yml
+credentials/
+.env

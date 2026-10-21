@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Table de faits des commandes avec métriques de livraison et paiement"
+    columns:
+      - name: order_id
+        description: "Identifiant unique de la commande"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['delivered', 'shipped', 'canceled', 'unavailable', 'invoiced', 'processing', 'created', 'approved']
+      - name: total_payment_value
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: "Dimension des clients avec géolocalisation"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: "Dimension des produits avec catégories traduites"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_sellers
+    description: "Dimension des vendeurs"
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_order_items
+    description: "Table de faits des lignes de commande"
+    columns:
+      - name: order_item_id
+        tests:
+          - not_null
+      - name: order_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('fct_orders')
+                field: order_id

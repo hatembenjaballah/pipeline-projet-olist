@@ -1,0 +1,19 @@
+{
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "olist",
+            "type": "file",
+            "path": "/mnt/d/ApacheAirFlowProject/pipeline-projet-olist/olist.duckdb",
+            "attached": false
+        }
+    ],
+    "duckdb.defaultDatabase": "olist",
+    "dbt.lineage.defaultExpansion": 0
+}
